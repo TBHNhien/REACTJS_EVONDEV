@@ -6,40 +6,38 @@ function App() {
   // console.log(double);
 
   console.log(YoutubeData);
+  // return (
+  //   <div className="youtube-list">
+  //     {YoutubeData.map((item, index) => (
+  //       <YoutubeItem
+  //         key={item.id}
+  //         image={item.image}
+  //         avatar={item.avatar || item.image}
+  //         title={item.title}
+  //         author={item.author}
+  //       ></YoutubeItem>
+  //     ))}
+  //   </div>
+  // );
+
+  // cách viết đầy đủ
   return (
     <div className="youtube-list">
-      {YoutubeData.map((item, index) => (
-        <YoutubeItem
-          key={item.id}
-          image={item.image}
-          avatar={item.avatar}
-          title={item.title}
-          author={item.author}
-        ></YoutubeItem>
-      ))}
-
-      {/* <Feature></Feature>
-      <Feature></Feature>
-      <Feature></Feature> */}
-      {/* <YoutubeItem
-        image="https://plus.unsplash.com/premium_photo-1674582717310-a0299ca7d0e6?q=80&w=1892&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        avatar="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      ></YoutubeItem>
-
-      <YoutubeItem
-        image="https://images.unsplash.com/photo-1496483648148-47c686dc86a8?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        avatar="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      ></YoutubeItem>
-
-      <YoutubeItem
-        image="https://images.unsplash.com/photo-1496661415325-ef852f9e8e7c?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        avatar="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      ></YoutubeItem>
-
-      <YoutubeItem
-        image="https://images.unsplash.com/photo-1555089548-88459e991a93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-        avatar="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      ></YoutubeItem> */}
+      {YoutubeData.map((item, index) => {
+        let newClass = "";
+        if (index === 1) newClass = "abc";
+        return (
+          <YoutubeItem
+            key={item.id}
+            image={item.image}
+            avatar={item.avatar || item.image}
+            title={item.title}
+            author={item.author}
+            // className={index === 1 ? "abc" : ""}
+            className={newClass}
+          ></YoutubeItem>
+        );
+      })}
     </div>
   );
 }
@@ -47,7 +45,7 @@ function App() {
 function YoutubeItem(props) {
   // console.log(props);
   return (
-    <div className="youtube-item">
+    <div className={`youtube-item ${props.className}`}>
       <div className="youtube-image">
         <img src={props.image} alt=""></img>
       </div>
