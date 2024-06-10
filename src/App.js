@@ -1,28 +1,27 @@
-import logo from "./logo.svg";
 import "./App.css";
-
-function Feature() {
-  return (
-    <div className="feature">
-      <img src="" alt="" className="feature-image" />
-      <h3 className="feature-title">Title2</h3>
-      <p className="feature-desc">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam
-        asperiores nesciunt eligendi praesentium quisquam sapiente minima dolor
-        accusantium dignissimos eius! Maiores explicabo suscipit cum aspernatur
-        molestias nisi nobis quas eaque?
-      </p>
-    </div>
-  );
-}
-
+import { YoutubeData } from "./YoutubeData";
 function App() {
+  // const numbers = [1, 2, 3, 4, 5];
+  // const double = numbers.map((item) => item * 2);
+  // console.log(double);
+
+  console.log(YoutubeData);
   return (
     <div className="youtube-list">
+      {YoutubeData.map((item, index) => (
+        <YoutubeItem
+          key={item.id}
+          image={item.image}
+          avatar={item.avatar}
+          title={item.title}
+          author={item.author}
+        ></YoutubeItem>
+      ))}
+
       {/* <Feature></Feature>
       <Feature></Feature>
       <Feature></Feature> */}
-      <YoutubeItem
+      {/* <YoutubeItem
         image="https://plus.unsplash.com/premium_photo-1674582717310-a0299ca7d0e6?q=80&w=1892&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         avatar="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ></YoutubeItem>
@@ -40,32 +39,17 @@ function App() {
       <YoutubeItem
         image="https://images.unsplash.com/photo-1555089548-88459e991a93?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         avatar="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-      ></YoutubeItem>
+      ></YoutubeItem> */}
     </div>
   );
 }
 
 function YoutubeItem(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className="youtube-item">
-      <div
-        className="youtube-image"
-        // style={{
-        //   height: "250px",
-        // }}
-      >
-        <img
-          src={props.image}
-          alt=""
-          // style={{
-          //   display: "block",
-          //   maxWidth: "100%",
-          //   width: "100%",
-          //   height: "100%",
-          //   objectFit: "cover",
-          // }}
-        ></img>
+      <div className="youtube-image">
+        <img src={props.image} alt=""></img>
       </div>
       <div className="youtube-footer">
         <img src={props.avatar} alt="" className="youtube-avatar" />
