@@ -21,8 +21,16 @@ function Toggle() {
   // console.log(a, b);
 
   const [on, setOn] = useState(false);
-  console.log(on, setOn);
+  console.log(on);
+  // console.log(on, setOn);
+  //const [title,setTitle]
+  //[isActive, setIsActive]
+  //<div className="toggle" onClick="toggle"></div>;
 
-  return <div className="toggle"></div>;
+  return (
+    <div className="toggle" onClick={() => setOn(true)}>
+      Toggle {on ? "On" : "Off"}
+    </div>
+  );
 }
 export default Toggle;
