@@ -28,21 +28,32 @@ function Toggle() {
   //[isActive, setIsActive]
   //<div className="toggle" onClick="toggle"></div>;
 
+  const handleToggle = () => {
+    // console.log("clicked");
+    //setOn(callback)->setOn(prevState=>!precState)
+    //c1
+    setOn((on) => !on);
+
+    //c2 setOn((on) => {
+    //   console.log(on);
+    //   return !on;
+    // });
+  };
+
   return (
     <div>
-      <div className={`toggle ${on ? "active" : ""}`}>
+      <div className={`toggle ${on ? "active" : ""}`} onClick={handleToggle}>
         <div className={`spinner ${on ? "active" : ""}`}></div>
       </div>
-      {on ? "On" : "Off"}
 
-      <div className="toggle-control">
+      {/* <div className="toggle-control">
         <div className="toggle-on" onClick={() => setOn(true)}>
           On
         </div>
         <div className="toggle-off" onClick={() => setOn(false)}>
           Off
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
